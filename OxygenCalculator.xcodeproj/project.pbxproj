@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9D9E3192972373700EE4747 /* OxygenCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3182972373700EE4747 /* OxygenCalculatorApp.swift */; };
+		D9D9E31B2972373700EE4747 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E31A2972373700EE4747 /* ContentView.swift */; };
+		D9D9E3202972373900EE4747 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9D9E31F2972373900EE4747 /* Preview Assets.xcassets */; };
+		D9D9E32A2972373900EE4747 /* OxygenCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3292972373900EE4747 /* OxygenCalculatorTests.swift */; };
+		D9D9E3342972373900EE4747 /* OxygenCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3332972373900EE4747 /* OxygenCalculatorUITests.swift */; };
+		D9D9E3362972373900EE4747 /* OxygenCalculatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3352972373900EE4747 /* OxygenCalculatorUITestsLaunchTests.swift */; };
+		D9D9E3472972377300EE4747 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3422972377300EE4747 /* LocalNotificationManager.swift */; };
+		D9D9E3482972377300EE4747 /* HamiltonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3432972377300EE4747 /* HamiltonView.swift */; };
+		D9D9E3492972377300EE4747 /* FreeFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3442972377300EE4747 /* FreeFlowView.swift */; };
+		D9D9E34A2972377300EE4747 /* OxygenTimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3452972377300EE4747 /* OxygenTimeHelper.swift */; };
+		D9D9E34B2972377300EE4747 /* TimerHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3462972377300EE4747 /* TimerHelperFunctions.swift */; };
+		D9D9E34D2972378700EE4747 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9D9E34C2972378700EE4747 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D9D9E3262972373900EE4747 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9D9E30D2972373700EE4747 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9D9E3142972373700EE4747;
+			remoteInfo = OxygenCalculator;
+		};
+		D9D9E3302972373900EE4747 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9D9E30D2972373700EE4747 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9D9E3142972373700EE4747;
+			remoteInfo = OxygenCalculator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D9D9E3152972373700EE4747 /* OxygenCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OxygenCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9D9E3182972373700EE4747 /* OxygenCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxygenCalculatorApp.swift; sourceTree = "<group>"; };
+		D9D9E31A2972373700EE4747 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D9D9E31F2972373900EE4747 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D9D9E3252972373900EE4747 /* OxygenCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OxygenCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9D9E3292972373900EE4747 /* OxygenCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxygenCalculatorTests.swift; sourceTree = "<group>"; };
+		D9D9E32F2972373900EE4747 /* OxygenCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OxygenCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9D9E3332972373900EE4747 /* OxygenCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxygenCalculatorUITests.swift; sourceTree = "<group>"; };
+		D9D9E3352972373900EE4747 /* OxygenCalculatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxygenCalculatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D9D9E3422972377300EE4747 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalNotificationManager.swift; path = "../../Oxgen Calculator/Oxgen Calculator/LocalNotificationManager.swift"; sourceTree = "<group>"; };
+		D9D9E3432972377300EE4747 /* HamiltonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HamiltonView.swift; path = "../../Oxgen Calculator/Oxgen Calculator/HamiltonView.swift"; sourceTree = "<group>"; };
+		D9D9E3442972377300EE4747 /* FreeFlowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FreeFlowView.swift; path = "../../Oxgen Calculator/Oxgen Calculator/FreeFlowView.swift"; sourceTree = "<group>"; };
+		D9D9E3452972377300EE4747 /* OxygenTimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OxygenTimeHelper.swift; path = "../../Oxgen Calculator/Oxgen Calculator/OxygenTimeHelper.swift"; sourceTree = "<group>"; };
+		D9D9E3462972377300EE4747 /* TimerHelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerHelperFunctions.swift; path = "../../Oxgen Calculator/Oxgen Calculator/TimerHelperFunctions.swift"; sourceTree = "<group>"; };
+		D9D9E34C2972378700EE4747 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../Oxgen Calculator/Oxgen Calculator/Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9D9E3122972373700EE4747 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9D9E3222972373900EE4747 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9D9E32C2972373900EE4747 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9D9E30C2972373700EE4747 = {
+			isa = PBXGroup;
+			children = (
+				D9D9E3172972373700EE4747 /* OxygenCalculator */,
+				D9D9E3282972373900EE4747 /* OxygenCalculatorTests */,
+				D9D9E3322972373900EE4747 /* OxygenCalculatorUITests */,
+				D9D9E3162972373700EE4747 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9D9E3162972373700EE4747 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9D9E3152972373700EE4747 /* OxygenCalculator.app */,
+				D9D9E3252972373900EE4747 /* OxygenCalculatorTests.xctest */,
+				D9D9E32F2972373900EE4747 /* OxygenCalculatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9D9E3172972373700EE4747 /* OxygenCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				D9D9E3182972373700EE4747 /* OxygenCalculatorApp.swift */,
+				D9D9E31A2972373700EE4747 /* ContentView.swift */,
+				D9D9E3442972377300EE4747 /* FreeFlowView.swift */,
+				D9D9E3432972377300EE4747 /* HamiltonView.swift */,
+				D9D9E3422972377300EE4747 /* LocalNotificationManager.swift */,
+				D9D9E3452972377300EE4747 /* OxygenTimeHelper.swift */,
+				D9D9E3462972377300EE4747 /* TimerHelperFunctions.swift */,
+				D9D9E34C2972378700EE4747 /* Assets.xcassets */,
+				D9D9E31E2972373900EE4747 /* Preview Content */,
+			);
+			path = OxygenCalculator;
+			sourceTree = "<group>";
+		};
+		D9D9E31E2972373900EE4747 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D9D9E31F2972373900EE4747 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D9D9E3282972373900EE4747 /* OxygenCalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9D9E3292972373900EE4747 /* OxygenCalculatorTests.swift */,
+			);
+			path = OxygenCalculatorTests;
+			sourceTree = "<group>";
+		};
+		D9D9E3322972373900EE4747 /* OxygenCalculatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D9D9E3332972373900EE4747 /* OxygenCalculatorUITests.swift */,
+				D9D9E3352972373900EE4747 /* OxygenCalculatorUITestsLaunchTests.swift */,
+			);
+			path = OxygenCalculatorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9D9E3142972373700EE4747 /* OxygenCalculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9D9E3392972373900EE4747 /* Build configuration list for PBXNativeTarget "OxygenCalculator" */;
+			buildPhases = (
+				D9D9E3112972373700EE4747 /* Sources */,
+				D9D9E3122972373700EE4747 /* Frameworks */,
+				D9D9E3132972373700EE4747 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OxygenCalculator;
+			productName = OxygenCalculator;
+			productReference = D9D9E3152972373700EE4747 /* OxygenCalculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D9D9E3242972373900EE4747 /* OxygenCalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9D9E33C2972373900EE4747 /* Build configuration list for PBXNativeTarget "OxygenCalculatorTests" */;
+			buildPhases = (
+				D9D9E3212972373900EE4747 /* Sources */,
+				D9D9E3222972373900EE4747 /* Frameworks */,
+				D9D9E3232972373900EE4747 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9D9E3272972373900EE4747 /* PBXTargetDependency */,
+			);
+			name = OxygenCalculatorTests;
+			productName = OxygenCalculatorTests;
+			productReference = D9D9E3252972373900EE4747 /* OxygenCalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D9D9E32E2972373900EE4747 /* OxygenCalculatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9D9E33F2972373900EE4747 /* Build configuration list for PBXNativeTarget "OxygenCalculatorUITests" */;
+			buildPhases = (
+				D9D9E32B2972373900EE4747 /* Sources */,
+				D9D9E32C2972373900EE4747 /* Frameworks */,
+				D9D9E32D2972373900EE4747 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9D9E3312972373900EE4747 /* PBXTargetDependency */,
+			);
+			name = OxygenCalculatorUITests;
+			productName = OxygenCalculatorUITests;
+			productReference = D9D9E32F2972373900EE4747 /* OxygenCalculatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9D9E30D2972373700EE4747 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					D9D9E3142972373700EE4747 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					D9D9E3242972373900EE4747 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = D9D9E3142972373700EE4747;
+					};
+					D9D9E32E2972373900EE4747 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = D9D9E3142972373700EE4747;
+					};
+				};
+			};
+			buildConfigurationList = D9D9E3102972373700EE4747 /* Build configuration list for PBXProject "OxygenCalculator" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9D9E30C2972373700EE4747;
+			productRefGroup = D9D9E3162972373700EE4747 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9D9E3142972373700EE4747 /* OxygenCalculator */,
+				D9D9E3242972373900EE4747 /* OxygenCalculatorTests */,
+				D9D9E32E2972373900EE4747 /* OxygenCalculatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9D9E3132972373700EE4747 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9D9E3202972373900EE4747 /* Preview Assets.xcassets in Resources */,
+				D9D9E34D2972378700EE4747 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9D9E3232972373900EE4747 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9D9E32D2972373900EE4747 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9D9E3112972373700EE4747 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9D9E34A2972377300EE4747 /* OxygenTimeHelper.swift in Sources */,
+				D9D9E3482972377300EE4747 /* HamiltonView.swift in Sources */,
+				D9D9E3472972377300EE4747 /* LocalNotificationManager.swift in Sources */,
+				D9D9E3492972377300EE4747 /* FreeFlowView.swift in Sources */,
+				D9D9E31B2972373700EE4747 /* ContentView.swift in Sources */,
+				D9D9E3192972373700EE4747 /* OxygenCalculatorApp.swift in Sources */,
+				D9D9E34B2972377300EE4747 /* TimerHelperFunctions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9D9E3212972373900EE4747 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9D9E32A2972373900EE4747 /* OxygenCalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9D9E32B2972373900EE4747 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9D9E3362972373900EE4747 /* OxygenCalculatorUITestsLaunchTests.swift in Sources */,
+				D9D9E3342972373900EE4747 /* OxygenCalculatorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D9D9E3272972373900EE4747 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9D9E3142972373700EE4747 /* OxygenCalculator */;
+			targetProxy = D9D9E3262972373900EE4747 /* PBXContainerItemProxy */;
+		};
+		D9D9E3312972373900EE4747 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9D9E3142972373700EE4747 /* OxygenCalculator */;
+			targetProxy = D9D9E3302972373900EE4747 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D9D9E3372972373900EE4747 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D9D9E3382972373900EE4747 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9D9E33A2972373900EE4747 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OxygenCalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = L6RJ755VZU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OptimuMedicine.OxygenCalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D9D9E33B2972373900EE4747 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OxygenCalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = L6RJ755VZU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OptimuMedicine.OxygenCalculator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D9D9E33D2972373900EE4747 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6RJ755VZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OptimuMedicine.OxygenCalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OxygenCalculator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OxygenCalculator";
+			};
+			name = Debug;
+		};
+		D9D9E33E2972373900EE4747 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6RJ755VZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OptimuMedicine.OxygenCalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OxygenCalculator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OxygenCalculator";
+			};
+			name = Release;
+		};
+		D9D9E3402972373900EE4747 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6RJ755VZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OptimuMedicine.OxygenCalculatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OxygenCalculator;
+			};
+			name = Debug;
+		};
+		D9D9E3412972373900EE4747 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6RJ755VZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OptimuMedicine.OxygenCalculatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OxygenCalculator;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9D9E3102972373700EE4747 /* Build configuration list for PBXProject "OxygenCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9D9E3372972373900EE4747 /* Debug */,
+				D9D9E3382972373900EE4747 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9D9E3392972373900EE4747 /* Build configuration list for PBXNativeTarget "OxygenCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9D9E33A2972373900EE4747 /* Debug */,
+				D9D9E33B2972373900EE4747 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9D9E33C2972373900EE4747 /* Build configuration list for PBXNativeTarget "OxygenCalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9D9E33D2972373900EE4747 /* Debug */,
+				D9D9E33E2972373900EE4747 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9D9E33F2972373900EE4747 /* Build configuration list for PBXNativeTarget "OxygenCalculatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9D9E3402972373900EE4747 /* Debug */,
+				D9D9E3412972373900EE4747 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9D9E30D2972373700EE4747 /* Project object */;
+}
