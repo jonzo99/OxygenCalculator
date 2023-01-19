@@ -54,8 +54,6 @@ struct HamiltonView: View {
     @AppStorage("HamvtTextField") var vtTextField   = ""
     @State private var stopStartText = "START"
     @AppStorage("HamTimeLeft") var timeText = "00:00:00"
-    
-    @AppStorage("timerCountingHamilton") var timerCounting = false
     @Environment(\.dismiss) private var dismiss
     @State private var showAlert: Bool = false
     @FocusState private var focusedField: Field?
@@ -115,7 +113,7 @@ struct HamiltonView: View {
                     total = 0
                 }
                 
-                if (timerCounting == false) {
+                if (oxegenTimerHelper.timerCountingHamilton == false) {
                     oxegenTimerHelper.hamCountDown = total
                 }
                 let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
@@ -135,7 +133,7 @@ struct HamiltonView: View {
                 showAlert = true
                 total = 0
             }
-            if (timerCounting == false) {
+            if (oxegenTimerHelper.timerCountingHamilton == false) {
                 oxegenTimerHelper.hamCountDown = total
             }
             let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
@@ -152,8 +150,8 @@ struct HamiltonView: View {
             if oxegenTimerHelper.hamCountDown <= 0 {
                 self.oxegenTimerHelper.hamCountDown = getTotalSecondsLeft()
             }
-            if (timerCounting) {
-                timerCounting = false
+            if (oxegenTimerHelper.timerCountingHamilton) {
+                oxegenTimerHelper.timerCountingHamilton = false
                 stopStartText = "START"
                 userNotificationCenter.removeAllPendingNotificationRequests()
             } else {
@@ -172,7 +170,7 @@ struct HamiltonView: View {
                     notificationManager.sendLocalNotification(timeInterval: Double(twoSeconds), title: "Timer is Done", body: "HAMILTON Timer is done", sound: "critalAlarm.wav")
                 }
                 
-                timerCounting = true
+                oxegenTimerHelper.timerCountingHamilton = true
                 stopStartText = "STOP  "
                 hideKeyboard()
             }
@@ -186,7 +184,7 @@ struct HamiltonView: View {
     var resetButton: some View {
         Button("RESET") {
             oxegenTimerHelper.hamCountDown = 0
-            timerCounting = false
+            oxegenTimerHelper.timerCountingHamilton = false
             stopStartText = "START"
             userNotificationCenter.removeAllPendingNotificationRequests()
             psiTextField  = ""

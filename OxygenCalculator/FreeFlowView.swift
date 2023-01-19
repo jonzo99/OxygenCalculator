@@ -33,7 +33,6 @@ struct FreeFlowView: View {
     @AppStorage("FreerateTextField") var rateTextField = ""
     @AppStorage("FreeTimeLeft") var timeText  = "00:00:00"
     @State private var stopStartText = "START"
-    @AppStorage("timerCountingFree") var timerCounting = false
     @EnvironmentObject var oxegenTimerHelper: OxegenTimeHelper
     @State private var showAlert: Bool = false
     @FocusState private var focusedField: Field?
@@ -83,7 +82,7 @@ struct FreeFlowView: View {
                     showAlert = true
                     total = 0
                 }
-                if (timerCounting == false) {
+                if (oxegenTimerHelper.timerCountingFree == false) {
                     oxegenTimerHelper.freeCountDown = total
                 }
                 let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
@@ -106,8 +105,8 @@ struct FreeFlowView: View {
             if oxegenTimerHelper.freeCountDown <= 0 {
                 self.oxegenTimerHelper.freeCountDown = getTotalSecondsLeft()
             }
-            if (timerCounting) {
-                timerCounting = false
+            if (oxegenTimerHelper.timerCountingFree) {
+                oxegenTimerHelper.timerCountingFree = false
                 stopStartText = "START"
                 userNotificationCenter.removeAllPendingNotificationRequests()
             } else {
@@ -126,7 +125,7 @@ struct FreeFlowView: View {
                     notificationManager.sendLocalNotification(timeInterval: Double(twoSeconds), title: "Timer is Done", body: "FREE FLOW Timer is done", sound: "critalAlarm.wav")
                 }
                 
-                timerCounting = true
+                oxegenTimerHelper.timerCountingFree = true
                 stopStartText = "STOP  "
                 print(oxegenTimerHelper.freeCountDown)
                 hideKeyboard()
@@ -143,7 +142,7 @@ struct FreeFlowView: View {
                 showAlert = true
                 total = 0
             }
-            if (timerCounting == false) {
+            if (oxegenTimerHelper.timerCountingFree == false) {
                 oxegenTimerHelper.freeCountDown = total
             }
             let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
@@ -158,7 +157,7 @@ struct FreeFlowView: View {
     var resetButton: some View {
         Button("RESET") {
             oxegenTimerHelper.freeCountDown = 0
-            timerCounting = false
+            oxegenTimerHelper.timerCountingFree = false
             oxegenTimerHelper.freeTimerText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
             stopStartText = "START"
             userNotificationCenter.removeAllPendingNotificationRequests()

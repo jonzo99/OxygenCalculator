@@ -8,16 +8,18 @@
 import Foundation
 
 class OxegenTimeHelper: ObservableObject {
+    @Published var timerCountingHamilton: Bool {
+        didSet {
+            UserDefaults.standard.set(timerCountingHamilton, forKey: "timerCountingHamilton")
+        }
+    }
+    @Published var timerCountingFree: Bool {
+        didSet {
+            UserDefaults.standard.set(timerCountingFree, forKey: "timerCountingFree")
+        }
+    }
     
-    // my hamilton timer is working great i only got off by 3 seconds
-    // after multiple times leaving and entering.
-    
-    // @AppStorage("timerCountingFree") var timerCounting = false
-    
-    /*fddf
-     I will also need to put the values of if they are counting down to be stored here
-     */
-    @Published var timeExitedScreen: Date {
+    @Published var timeExitedScreen: Date? {
         didSet {
             UserDefaults.standard.set(timeExitedScreen, forKey: "timeExitedScreen")
         }
@@ -36,18 +38,62 @@ class OxegenTimeHelper: ObservableObject {
         }
     }
     @Published var freeTimerText: String = "00:00:00"
+    
+    @Published var timer: Timer?
+    
+    func startTimer()
+    {
+      if timer == nil {
+          timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
+      }
+    }
+
+    func stopTimer()
+    {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc func timerFired() {
+        if timerCountingHamilton {
+            if (hamCountDown > 0) {
+                hamCountDown -= 1
+            }
+            if (hamCountDown <= 0) {
+                timerCountingHamilton = false
+            }
+            // if i want to add a message when it hits a certain amount of seconds i should make phone vibrate show notification
+            let time = secondsToHoursMinutesSeconds(seconds: hamCountDown)
+            let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+            hamTimerText = timeString
+        }
+        
+        if timerCountingFree {
+            if (freeCountDown > 0) {
+                freeCountDown -= 1
+            }
+            if (freeCountDown <= 0) {
+                timerCountingFree = false
+            }
+            // if i want to add a message when it hits a certain amount of seconds i should make phone vibrate show notification
+            let time = secondsToHoursMinutesSeconds(seconds: freeCountDown)
+            let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+            freeTimerText = timeString
+        }
+   }
+    
     init() {
-        //self.hamTimerCounting = UserDefaults.standard.bool(forKey: "timerCountingHamilton")
-        self.timeExitedScreen = UserDefaults.standard.object(forKey: "timeExitedScreen") as? Date ?? Date()
+        self.timeExitedScreen = UserDefaults.standard.object(forKey: "timeExitedScreen") as? Date
         self.hamCountDown = UserDefaults.standard.integer(forKey: "HamCountDown")
         self.freeCountDown = UserDefaults.standard.integer(forKey: "FreeCountDown")
+        self.timerCountingFree = UserDefaults.standard.bool(forKey: "timerCountingFree")
+        self.timerCountingHamilton = UserDefaults.standard.bool(forKey: "timerCountingHamilton")
         
     }
      func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
         (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
-    // I dont think I should make these static functions
-    // But I would need to do more researh
+    
      func makeTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
         var timeString = ""
         timeString += String(format: "%02d", hours)
