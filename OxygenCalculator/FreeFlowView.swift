@@ -9,11 +9,7 @@ import SwiftUI
 
 @available(iOS 15.0, *)
 struct FreeFlowView: View {
-    // create Local Storage
-    // so I can store and always display
-    // the values of the timer.
     
-    // needs to be local because they go offline
     func getTotalSecondsLeft() -> Int {
         let numPsiTextField = Double(psiTextField) ?? 0
         let numRateTextField = Double(rateTextField) ?? 0
@@ -93,10 +89,6 @@ struct FreeFlowView: View {
         .alert(isPresented: $showAlert) {
             Alert(title: Text("Error"), message: Text("Calculation needs to be greater than 0"), dismissButton: .default(Text("OK")))
         }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willTerminateNotification)) { _ in
-            print("yeah the terminated your app boi")
-            print(oxegenTimerHelper.freeCountDown)
-        }
     }
     
     
@@ -127,13 +119,12 @@ struct FreeFlowView: View {
                 
                 oxegenTimerHelper.timerCountingFree = true
                 stopStartText = "STOP  "
-                print(oxegenTimerHelper.freeCountDown)
                 hideKeyboard()
             }
         }
-        .foregroundColor(Color(.red))
+        .foregroundColor(.red)
         .padding()
-        .background(RoundedRectangle(cornerRadius: 10   , style: .continuous))
+        .background(RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
     var calcButton: some View {
         Button("CALC ") {
@@ -150,7 +141,7 @@ struct FreeFlowView: View {
             timeText = timeString
             hideKeyboard()
         }
-        .foregroundColor(Color(.red))
+        .foregroundColor(.red)
         .padding()
         .background(RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
@@ -168,7 +159,7 @@ struct FreeFlowView: View {
         }
         .foregroundColor(.red)
         .padding()
-        .background(RoundedRectangle(cornerRadius: 10   , style: .continuous))
+        .background(RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
 }
 

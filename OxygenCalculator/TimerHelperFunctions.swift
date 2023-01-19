@@ -37,9 +37,7 @@ struct timerTextField: View {
             .textFieldStyle(OvalTextFieldStyle())
             .submitLabel(.next)
         }
-        .padding(.bottom)
-        .padding(.leading, 20)
-        .padding(.trailing, 20)
+        .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
     }
 }
 struct TankSizePicker: View {
@@ -61,9 +59,7 @@ struct TankSizePicker: View {
             .frame(width: 200)
             .multilineTextAlignment(.center)
         }
-        .padding(.bottom)
-        .padding(.leading,20)
-        .padding(.trailing,20)
+        .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
     }
 }
 
@@ -80,8 +76,6 @@ struct CaluclatedTime: View {
                 .modifier(PrimaryLabel())
                 .keyboardType(.numbersAndPunctuation)
         }
-        .padding(.leading,20)
-        .padding(.trailing,20)
-        .padding(.bottom)
+        .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
     }
 }

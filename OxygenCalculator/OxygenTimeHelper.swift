@@ -8,48 +8,50 @@
 import Foundation
 
 class OxegenTimeHelper: ObservableObject {
-    @Published var timerCountingHamilton: Bool {
-        didSet {
-            UserDefaults.standard.set(timerCountingHamilton, forKey: "timerCountingHamilton")
-        }
-    }
-    @Published var timerCountingFree: Bool {
-        didSet {
-            UserDefaults.standard.set(timerCountingFree, forKey: "timerCountingFree")
-        }
-    }
-    
-    @Published var timeExitedScreen: Date? {
-        didSet {
-            UserDefaults.standard.set(timeExitedScreen, forKey: "timeExitedScreen")
-        }
-    }
-    @Published var hamCountDown: Int {
-        didSet {
-            UserDefaults.standard.set(hamCountDown, forKey: "HamCountDown")
-        }
-    }
-    @Published var hamTimerText: String = "00:00:00"
-    
-    
     @Published var freeCountDown: Int {
         didSet {
             UserDefaults.standard.set(freeCountDown, forKey: "FreeCountDown")
         }
     }
     @Published var freeTimerText: String = "00:00:00"
-    
-    @Published var timer: Timer?
-    
-    func startTimer()
-    {
-      if timer == nil {
-          timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
-      }
+    @Published var hamCountDown: Int {
+        didSet {
+            UserDefaults.standard.set(hamCountDown, forKey: "HamCountDown")
+        }
     }
-
-    func stopTimer()
-    {
+    @Published var hamTimerText: String = "00:00:00"
+    @Published var timeExitedScreen: Date? {
+        didSet {
+            UserDefaults.standard.set(timeExitedScreen, forKey: "timeExitedScreen")
+        }
+    }
+    @Published var timer: Timer?
+    @Published var timerCountingFree: Bool {
+        didSet {
+            UserDefaults.standard.set(timerCountingFree, forKey: "timerCountingFree")
+        }
+    }
+    @Published var timerCountingHamilton: Bool {
+        didSet {
+            UserDefaults.standard.set(timerCountingHamilton, forKey: "timerCountingHamilton")
+        }
+    }
+    
+    init() {
+        self.timeExitedScreen = UserDefaults.standard.object(forKey: "timeExitedScreen") as? Date
+        self.hamCountDown = UserDefaults.standard.integer(forKey: "HamCountDown")
+        self.freeCountDown = UserDefaults.standard.integer(forKey: "FreeCountDown")
+        self.timerCountingFree = UserDefaults.standard.bool(forKey: "timerCountingFree")
+        self.timerCountingHamilton = UserDefaults.standard.bool(forKey: "timerCountingHamilton")
+    }
+    
+    func startTimer() {
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func stopTimer() {
         timer?.invalidate()
         timer = nil
     }
@@ -80,21 +82,12 @@ class OxegenTimeHelper: ObservableObject {
             let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
             freeTimerText = timeString
         }
-   }
-    
-    init() {
-        self.timeExitedScreen = UserDefaults.standard.object(forKey: "timeExitedScreen") as? Date
-        self.hamCountDown = UserDefaults.standard.integer(forKey: "HamCountDown")
-        self.freeCountDown = UserDefaults.standard.integer(forKey: "FreeCountDown")
-        self.timerCountingFree = UserDefaults.standard.bool(forKey: "timerCountingFree")
-        self.timerCountingHamilton = UserDefaults.standard.bool(forKey: "timerCountingHamilton")
-        
     }
-     func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
+    func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
         (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
-     func makeTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
+    func makeTimeString(hours: Int, minutes: Int, seconds: Int) -> String {
         var timeString = ""
         timeString += String(format: "%02d", hours)
         timeString += ":"

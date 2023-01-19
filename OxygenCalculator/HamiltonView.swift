@@ -9,25 +9,10 @@ import SwiftUI
 
 import SwiftUI
 import Foundation
-// every time I change a value I should do all the calculations
-// to get the time. In order the user does not have to edit.
+///every time I change a value I should do all the calculations to get the time. In order the user does not have to edit. This way whenever the user enters the last empty input field it automatically shows Time left. Like if they pressed the "CALC" button. This is better user experience.
+///When the user presses reset show an alert just so they do not reset by accident.
 
 
-// I should only let the user to change the values when the timer is
-// not counting down that is why they will have to press reset.
-
-//@available(iOS 15.0, *)
-
-// Here for the times i Need to create a viewModel
-
-//View, ViewModel, Model
-
-
-/*
- So HamiltonView and FreeFlow would be the View
- Create class thats like OxgenHelperViewModel
- 
- */
 struct HamiltonView: View {
     
     func getTotalSecondsLeft() -> Int {
@@ -54,7 +39,6 @@ struct HamiltonView: View {
     @AppStorage("HamvtTextField") var vtTextField   = ""
     @State private var stopStartText = "START"
     @AppStorage("HamTimeLeft") var timeText = "00:00:00"
-    @Environment(\.dismiss) private var dismiss
     @State private var showAlert: Bool = false
     @FocusState private var focusedField: Field?
     @EnvironmentObject var oxegenTimerHelper: OxegenTimeHelper
@@ -83,7 +67,6 @@ struct HamiltonView: View {
                 .frame(alignment: .center)
             Spacer()
             HStack {
-                
                 resetButton
                     .padding()
                 calcButton
@@ -91,11 +74,6 @@ struct HamiltonView: View {
                 startStopButton
                     .padding()
             }
-        }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-            print("When the user turn off the screen or swipes out of the app.")
-            //dismiss()
-            // this will call the on dis
         }
         .onSubmit {
             switch focusedField {
@@ -106,13 +84,11 @@ struct HamiltonView: View {
             case .rateTextField:
                 focusedField = .vtTextField
             default:
-                
                 var total = getTotalSecondsLeft()
                 if (total <= 0) {
                     showAlert = true
                     total = 0
                 }
-                
                 if (oxegenTimerHelper.timerCountingHamilton == false) {
                     oxegenTimerHelper.hamCountDown = total
                 }
@@ -177,9 +153,8 @@ struct HamiltonView: View {
         }
         .foregroundColor(Color(.red))
         .padding()
-        .background(RoundedRectangle(cornerRadius: 10   , style: .continuous))
+        .background(RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
-    
     
     var resetButton: some View {
         Button("RESET") {
@@ -197,7 +172,7 @@ struct HamiltonView: View {
         }
         .foregroundColor(Color(.red))
         .padding()
-        .background(RoundedRectangle(cornerRadius: 10   , style: .continuous))
+        .background(RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
     var patientPicker: some View {
         HStack {
@@ -213,9 +188,7 @@ struct HamiltonView: View {
             .frame(width:200)
             .multilineTextAlignment(.center)
         }
-        .padding(.bottom)
-        .padding(.leading,20)
-        .padding(.trailing,20)
+        .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
     }
 }
 

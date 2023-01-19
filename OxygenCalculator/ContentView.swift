@@ -49,16 +49,9 @@ struct OvalTextFieldStyle: TextFieldStyle {
     }
 }
 
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
-//dd
-///This is what I am going to do to make the onAppear always work
-///Im going to have a fake loading screen and alll it is going to do
-/// is present my other screen so always it gets called
-/// and when i leave the app I will dismiss the screen.
 
