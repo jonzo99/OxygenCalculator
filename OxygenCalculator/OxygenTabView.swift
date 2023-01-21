@@ -12,21 +12,30 @@ import UserNotifications
 import AVFAudio
 
 struct OxygenTabView: View {
+    @EnvironmentObject var oxygenTimerHelper: OxegenTimeHelper
+    @State var selectedTab = 1
     var body: some View {
         ZStack {
-            TabView {
+            TabView(selection: $selectedTab) {
                 HamiltonView()
                     .tabItem{
                         Image(systemName: "square.fill")
                         Text("HAMILTON")
                     }
-                    .navigationBarTitle("Hamilton")
+                    .tag(1)
                 FreeFlowView()
                     .tabItem {
                         Image(systemName: "square.fill")
                         Text("Free Flow")
                     }
-                    .navigationBarTitle("Hamilton")
+                    .tag(2)
+            }
+            .onAppear(){
+                if oxygenTimerHelper.isHamiltonCounting {
+                    selectedTab = 1
+                } else if oxygenTimerHelper.isFreeFlowCounting {
+                    selectedTab = 2
+                }
             }
         }
     }
