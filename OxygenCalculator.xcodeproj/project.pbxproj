@@ -10,7 +10,7 @@
 		D9D7FC65297625B90093105D /* iphone_alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D9D7FC63297625B90093105D /* iphone_alarm.mp3 */; };
 		D9D7FC66297625B90093105D /* critalAlarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = D9D7FC64297625B90093105D /* critalAlarm.wav */; };
 		D9D9E3192972373700EE4747 /* OxygenCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3182972373700EE4747 /* OxygenCalculatorApp.swift */; };
-		D9D9E31B2972373700EE4747 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E31A2972373700EE4747 /* ContentView.swift */; };
+		D9D9E31B2972373700EE4747 /* OxygenTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E31A2972373700EE4747 /* OxygenTabView.swift */; };
 		D9D9E3202972373900EE4747 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9D9E31F2972373900EE4747 /* Preview Assets.xcassets */; };
 		D9D9E32A2972373900EE4747 /* OxygenCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3292972373900EE4747 /* OxygenCalculatorTests.swift */; };
 		D9D9E3342972373900EE4747 /* OxygenCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D9E3332972373900EE4747 /* OxygenCalculatorUITests.swift */; };
@@ -45,7 +45,7 @@
 		D9D7FC64297625B90093105D /* critalAlarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = critalAlarm.wav; sourceTree = "<group>"; };
 		D9D9E3152972373700EE4747 /* OxygenCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OxygenCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9D9E3182972373700EE4747 /* OxygenCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxygenCalculatorApp.swift; sourceTree = "<group>"; };
-		D9D9E31A2972373700EE4747 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D9D9E31A2972373700EE4747 /* OxygenTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxygenTabView.swift; sourceTree = "<group>"; };
 		D9D9E31F2972373900EE4747 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D9D9E3252972373900EE4747 /* OxygenCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OxygenCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9D9E3292972373900EE4747 /* OxygenCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OxygenCalculatorTests.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 				D9D7FC64297625B90093105D /* critalAlarm.wav */,
 				D9D7FC63297625B90093105D /* iphone_alarm.mp3 */,
 				D9D9E3182972373700EE4747 /* OxygenCalculatorApp.swift */,
-				D9D9E31A2972373700EE4747 /* ContentView.swift */,
+				D9D9E31A2972373700EE4747 /* OxygenTabView.swift */,
 				D9D9E35C29723AC600EE4747 /* FreeFlowView.swift */,
 				D9D9E35A29723ABE00EE4747 /* HamiltonView.swift */,
 				D9D9E35829723AAD00EE4747 /* LocalNotificationManager.swift */,
@@ -282,7 +282,7 @@
 			files = (
 				D9D9E35729723AA400EE4747 /* OxygenTimeHelper.swift in Sources */,
 				D9D9E35D29723AC600EE4747 /* FreeFlowView.swift in Sources */,
-				D9D9E31B2972373700EE4747 /* ContentView.swift in Sources */,
+				D9D9E31B2972373700EE4747 /* OxygenTabView.swift in Sources */,
 				D9D9E35B29723ABE00EE4747 /* HamiltonView.swift in Sources */,
 				D9D9E3192972373700EE4747 /* OxygenCalculatorApp.swift in Sources */,
 				D9D9E35929723AAD00EE4747 /* LocalNotificationManager.swift in Sources */,

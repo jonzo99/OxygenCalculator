@@ -13,7 +13,7 @@ struct OxygenCalculatorApp: App {
     @Environment(\.scenePhase) private var scenePhase
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OxygenTabView()
                 .environmentObject(oxegenTimerHelper)
                 .onDisappear() {
                     oxegenTimerHelper.timeExitedScreen = Date()

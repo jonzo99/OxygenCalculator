@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  OxygenTabView.swift
 //  OxygenCalculator
 //
 //  Created by Jonzo Jimenez on 1/13/23.
@@ -11,7 +11,7 @@ import SwiftUI
 import UserNotifications
 import AVFAudio
 
-struct ContentView: View {
+struct OxygenTabView: View {
     var body: some View {
         ZStack {
             TabView {
@@ -51,7 +51,7 @@ struct OvalTextFieldStyle: TextFieldStyle {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        OxygenTabView()
     }
 }
 
