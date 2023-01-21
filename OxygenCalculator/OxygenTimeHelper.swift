@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OxegenTimeHelper: ObservableObject {
+class OxygenTimeHelper: ObservableObject {
     @Published var freeFlowCountDown: Int {
         didSet {
             UserDefaults.standard.set(freeFlowCountDown, forKey: "freeFlowCountDown")

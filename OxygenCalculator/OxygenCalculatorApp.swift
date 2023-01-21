@@ -9,38 +9,38 @@ import SwiftUI
 
 @main
 struct OxygenCalculatorApp: App {
-    @StateObject var oxegenTimerHelper = OxegenTimeHelper()
+    @StateObject var oxygenTimeHelper = OxygenTimeHelper()
     @Environment(\.scenePhase) private var scenePhase
     var body: some Scene {
         WindowGroup {
             OxygenTabView()
-                .environmentObject(oxegenTimerHelper)
+                .environmentObject(oxygenTimeHelper)
                 .onDisappear() {
-                    oxegenTimerHelper.timeExitedScreen = Date()
-                    oxegenTimerHelper.stopTimer()
+                    oxygenTimeHelper.timeExitedScreen = Date()
+                    oxygenTimeHelper.stopTimer()
                 }
         }
         .onChange(of: scenePhase) { phase in
             if phase == .active {
                 print("Device: Active")
-                if let timeExitedScreen = oxegenTimerHelper.timeExitedScreen {
+                if let timeExitedScreen = oxygenTimeHelper.timeExitedScreen {
                     let timePassedInBackground = Int(Date() - timeExitedScreen) + 1
                     print(timeExitedScreen)
-                    if oxegenTimerHelper.isHamiltonCounting {
-                        oxegenTimerHelper.hamiltonCountDown = oxegenTimerHelper.hamiltonCountDown - timePassedInBackground
+                    if oxygenTimeHelper.isHamiltonCounting {
+                        oxygenTimeHelper.hamiltonCountDown = oxygenTimeHelper.hamiltonCountDown - timePassedInBackground
                     }
                     
-                    if oxegenTimerHelper.isFreeFlowCounting {
-                        oxegenTimerHelper.freeFlowCountDown = oxegenTimerHelper.freeFlowCountDown - timePassedInBackground
+                    if oxygenTimeHelper.isFreeFlowCounting {
+                        oxygenTimeHelper.freeFlowCountDown = oxygenTimeHelper.freeFlowCountDown - timePassedInBackground
                     }
                 }
-                oxegenTimerHelper.timeExitedScreen = nil
-                oxegenTimerHelper.startTimer()
+                oxygenTimeHelper.timeExitedScreen = nil
+                oxygenTimeHelper.startTimer()
             }
             if phase == .background {
                 print("Device: Background")
-                oxegenTimerHelper.timeExitedScreen = Date()
-                oxegenTimerHelper.stopTimer()
+                oxygenTimeHelper.timeExitedScreen = Date()
+                oxygenTimeHelper.stopTimer()
             }
         }
     }

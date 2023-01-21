@@ -41,7 +41,7 @@ struct HamiltonView: View {
     @AppStorage("HamTimeLeft") var timeText = "00:00:00"
     @State private var showAlert: Bool = false
     @FocusState private var focusedField: Field?
-    @EnvironmentObject var oxegenTimerHelper: OxegenTimeHelper
+    @EnvironmentObject var oxygenTimeHelper: OxygenTimeHelper
     var body: some View {
         VStack(spacing: 8) {
             
@@ -67,7 +67,7 @@ struct HamiltonView: View {
             
             CaluclatedTime(displayTimeText: $timeText)
             
-            Text(oxegenTimerHelper.hamiltonTimerText)
+            Text(oxygenTimeHelper.hamiltonTimerText)
                 .font(.system(size: 40, weight: .bold, design: .rounded))
                 .frame(alignment: .center)
             Spacer()
@@ -94,11 +94,11 @@ struct HamiltonView: View {
                     showAlert = true
                     total = 0
                 }
-                if (oxegenTimerHelper.isHamiltonCounting == false) {
-                    oxegenTimerHelper.hamiltonCountDown = total
+                if (oxygenTimeHelper.isHamiltonCounting == false) {
+                    oxygenTimeHelper.hamiltonCountDown = total
                 }
-                let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
-                let timeString = oxegenTimerHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+                let time = oxygenTimeHelper.secondsToHoursMinutesSeconds(seconds: total)
+                let timeString = oxygenTimeHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
                 timeText = timeString
             }
         }
@@ -114,11 +114,11 @@ struct HamiltonView: View {
                 showAlert = true
                 total = 0
             }
-            if (oxegenTimerHelper.isHamiltonCounting == false) {
-                oxegenTimerHelper.hamiltonCountDown = total
+            if (oxygenTimeHelper.isHamiltonCounting == false) {
+                oxygenTimeHelper.hamiltonCountDown = total
             }
-            let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
-            let timeString = oxegenTimerHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+            let time = oxygenTimeHelper.secondsToHoursMinutesSeconds(seconds: total)
+            let timeString = oxygenTimeHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
             timeText = timeString
             hideKeyboard()
         }
@@ -128,30 +128,30 @@ struct HamiltonView: View {
     }
     var startStopButton: some View {
         Button(stopStartText) {
-            if oxegenTimerHelper.hamiltonCountDown <= 0 {
-                self.oxegenTimerHelper.hamiltonCountDown = getTotalSecondsLeft()
+            if oxygenTimeHelper.hamiltonCountDown <= 0 {
+                self.oxygenTimeHelper.hamiltonCountDown = getTotalSecondsLeft()
             }
-            if (oxegenTimerHelper.isHamiltonCounting) {
-                oxegenTimerHelper.isHamiltonCounting = false
+            if (oxygenTimeHelper.isHamiltonCounting) {
+                oxygenTimeHelper.isHamiltonCounting = false
                 stopStartText = "START"
                 userNotificationCenter.removeAllPendingNotificationRequests()
             } else {
-                if oxegenTimerHelper.hamiltonCountDown >= 600 {
-                    let minuteLeft = oxegenTimerHelper.hamiltonCountDown - 599
+                if oxygenTimeHelper.hamiltonCountDown >= 600 {
+                    let minuteLeft = oxygenTimeHelper.hamiltonCountDown - 599
                     notificationManager.sendLocalNotification(timeInterval: Double(minuteLeft), title: "10 mins Left", body: "HAMILTON there is 10 mins left", sound: "critalAlarm.wav")
                 }
-                if oxegenTimerHelper.hamiltonCountDown >= 60 {
-                    let tenseconds = oxegenTimerHelper.hamiltonCountDown - 59
-                    print(oxegenTimerHelper.hamiltonCountDown)
+                if oxygenTimeHelper.hamiltonCountDown >= 60 {
+                    let tenseconds = oxygenTimeHelper.hamiltonCountDown - 59
+                    print(oxygenTimeHelper.hamiltonCountDown)
                     notificationManager.sendLocalNotification(timeInterval: Double(tenseconds), title: "1 min Left", body: "HAMILTON there is 1 mins left", sound: "critalAlarm.wav")
                 }
                 
-                if oxegenTimerHelper.hamiltonCountDown >= 2 {
-                    let twoSeconds = oxegenTimerHelper.hamiltonCountDown - 1
+                if oxygenTimeHelper.hamiltonCountDown >= 2 {
+                    let twoSeconds = oxygenTimeHelper.hamiltonCountDown - 1
                     notificationManager.sendLocalNotification(timeInterval: Double(twoSeconds), title: "Timer is Done", body: "HAMILTON Timer is done", sound: "critalAlarm.wav")
                 }
                 
-                oxegenTimerHelper.isHamiltonCounting = true
+                oxygenTimeHelper.isHamiltonCounting = true
                 stopStartText = "STOP  "
                 hideKeyboard()
             }
@@ -163,16 +163,16 @@ struct HamiltonView: View {
     
     var resetButton: some View {
         Button("RESET") {
-            oxegenTimerHelper.hamiltonCountDown = 0
-            oxegenTimerHelper.isHamiltonCounting = false
+            oxygenTimeHelper.hamiltonCountDown = 0
+            oxygenTimeHelper.isHamiltonCounting = false
             stopStartText = "START"
             userNotificationCenter.removeAllPendingNotificationRequests()
             psiTextField  = ""
             fi02TextField = ""
             rateTextField = ""
             vtTextField   = ""
-            oxegenTimerHelper.hamiltonTimerText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
-            timeText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
+            oxygenTimeHelper.hamiltonTimerText = oxygenTimeHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
+            timeText = oxygenTimeHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
             hideKeyboard()
         }
         .foregroundColor(Color(.red))

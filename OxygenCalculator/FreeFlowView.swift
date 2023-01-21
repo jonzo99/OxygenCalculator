@@ -29,7 +29,7 @@ struct FreeFlowView: View {
     @AppStorage("FreerateTextField") var rateTextField = ""
     @AppStorage("FreeTimeLeft") var timeText  = "00:00:00"
     @State private var stopStartText = "START"
-    @EnvironmentObject var oxegenTimerHelper: OxegenTimeHelper
+    @EnvironmentObject var oxygenTimeHelper: OxygenTimeHelper
     @State private var showAlert: Bool = false
     @FocusState private var focusedField: Field?
     
@@ -48,7 +48,7 @@ struct FreeFlowView: View {
             
             CaluclatedTime(displayTimeText: $timeText)
             
-            Text(oxegenTimerHelper.freeFlowTimerText)
+            Text(oxygenTimeHelper.freeFlowTimerText)
                 .font(.system(size: 40, weight: .bold, design: .rounded))
                 .frame(alignment: .center)
             Spacer()
@@ -74,11 +74,11 @@ struct FreeFlowView: View {
                     showAlert = true
                     total = 0
                 }
-                if (oxegenTimerHelper.isFreeFlowCounting == false) {
-                    oxegenTimerHelper.freeFlowCountDown = total
+                if (oxygenTimeHelper.isFreeFlowCounting == false) {
+                    oxygenTimeHelper.freeFlowCountDown = total
                 }
-                let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
-                let timeString = oxegenTimerHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+                let time = oxygenTimeHelper.secondsToHoursMinutesSeconds(seconds: total)
+                let timeString = oxygenTimeHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
                 timeText = timeString
             }
         }
@@ -90,29 +90,29 @@ struct FreeFlowView: View {
     
     var startStopButton: some View {
         Button(stopStartText) {
-            if oxegenTimerHelper.freeFlowCountDown <= 0 {
-                self.oxegenTimerHelper.freeFlowCountDown = getTotalSecondsLeft()
+            if oxygenTimeHelper.freeFlowCountDown <= 0 {
+                self.oxygenTimeHelper.freeFlowCountDown = getTotalSecondsLeft()
             }
-            if (oxegenTimerHelper.isFreeFlowCounting) {
-                oxegenTimerHelper.isFreeFlowCounting = false
+            if (oxygenTimeHelper.isFreeFlowCounting) {
+                oxygenTimeHelper.isFreeFlowCounting = false
                 stopStartText = "START"
                 userNotificationCenter.removeAllPendingNotificationRequests()
             } else {
-                if oxegenTimerHelper.freeFlowCountDown >= 600 {
-                    let minuteLeft = oxegenTimerHelper.freeFlowCountDown - 599
+                if oxygenTimeHelper.freeFlowCountDown >= 600 {
+                    let minuteLeft = oxygenTimeHelper.freeFlowCountDown - 599
                     notificationManager.sendLocalNotification(timeInterval: Double(minuteLeft), title: "10 mins Left", body: "FREE FLOW there is 10 mins left", sound: "critalAlarm.wav")
                 }
-                if oxegenTimerHelper.freeFlowCountDown >= 60 {
-                    let tenseconds = oxegenTimerHelper.freeFlowCountDown - 59
-                    print(oxegenTimerHelper.freeFlowCountDown)
+                if oxygenTimeHelper.freeFlowCountDown >= 60 {
+                    let tenseconds = oxygenTimeHelper.freeFlowCountDown - 59
+                    print(oxygenTimeHelper.freeFlowCountDown)
                     notificationManager.sendLocalNotification(timeInterval: Double(tenseconds), title: "1 min Left", body: "FREE FLOW there is 1 mins left", sound: "critalAlarm.wav")
                 }
-                if oxegenTimerHelper.freeFlowCountDown >= 2 {
-                    let twoSeconds = oxegenTimerHelper.freeFlowCountDown - 1
+                if oxygenTimeHelper.freeFlowCountDown >= 2 {
+                    let twoSeconds = oxygenTimeHelper.freeFlowCountDown - 1
                     notificationManager.sendLocalNotification(timeInterval: Double(twoSeconds), title: "Timer is Done", body: "FREE FLOW Timer is done", sound: "critalAlarm.wav")
                 }
                 
-                oxegenTimerHelper.isFreeFlowCounting = true
+                oxygenTimeHelper.isFreeFlowCounting = true
                 stopStartText = "STOP  "
                 hideKeyboard()
             }
@@ -128,11 +128,11 @@ struct FreeFlowView: View {
                 showAlert = true
                 total = 0
             }
-            if (oxegenTimerHelper.isFreeFlowCounting == false) {
-                oxegenTimerHelper.freeFlowCountDown = total
+            if (oxygenTimeHelper.isFreeFlowCounting == false) {
+                oxygenTimeHelper.freeFlowCountDown = total
             }
-            let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
-            let timeString = oxegenTimerHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
+            let time = oxygenTimeHelper.secondsToHoursMinutesSeconds(seconds: total)
+            let timeString = oxygenTimeHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
             timeText = timeString
             hideKeyboard()
         }
@@ -142,14 +142,14 @@ struct FreeFlowView: View {
     }
     var resetButton: some View {
         Button("RESET") {
-            oxegenTimerHelper.freeFlowCountDown = 0
-            oxegenTimerHelper.isFreeFlowCounting = false
-            oxegenTimerHelper.freeFlowTimerText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
+            oxygenTimeHelper.freeFlowCountDown = 0
+            oxygenTimeHelper.isFreeFlowCounting = false
+            oxygenTimeHelper.freeFlowTimerText = oxygenTimeHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
             stopStartText = "START"
             userNotificationCenter.removeAllPendingNotificationRequests()
             psiTextField = ""
             rateTextField = ""
-            timeText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
+            timeText = oxygenTimeHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
             hideKeyboard()
         }
         .foregroundColor(.red)
