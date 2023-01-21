@@ -44,6 +44,11 @@ struct HamiltonView: View {
     @EnvironmentObject var oxegenTimerHelper: OxegenTimeHelper
     var body: some View {
         VStack(spacing: 8) {
+            
+            Text("Hamilton")
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
             Spacer()
             
             patientPicker
@@ -62,7 +67,7 @@ struct HamiltonView: View {
             
             CaluclatedTime(displayTimeText: $timeText)
             
-            Text(oxegenTimerHelper.hamTimerText)
+            Text(oxegenTimerHelper.hamiltonTimerText)
                 .font(.system(size: 40, weight: .bold, design: .rounded))
                 .frame(alignment: .center)
             Spacer()
@@ -89,8 +94,8 @@ struct HamiltonView: View {
                     showAlert = true
                     total = 0
                 }
-                if (oxegenTimerHelper.timerCountingHamilton == false) {
-                    oxegenTimerHelper.hamCountDown = total
+                if (oxegenTimerHelper.isHamiltonCounting == false) {
+                    oxegenTimerHelper.hamiltonCountDown = total
                 }
                 let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
                 let timeString = oxegenTimerHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
@@ -109,8 +114,8 @@ struct HamiltonView: View {
                 showAlert = true
                 total = 0
             }
-            if (oxegenTimerHelper.timerCountingHamilton == false) {
-                oxegenTimerHelper.hamCountDown = total
+            if (oxegenTimerHelper.isHamiltonCounting == false) {
+                oxegenTimerHelper.hamiltonCountDown = total
             }
             let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
             let timeString = oxegenTimerHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
@@ -123,30 +128,30 @@ struct HamiltonView: View {
     }
     var startStopButton: some View {
         Button(stopStartText) {
-            if oxegenTimerHelper.hamCountDown <= 0 {
-                self.oxegenTimerHelper.hamCountDown = getTotalSecondsLeft()
+            if oxegenTimerHelper.hamiltonCountDown <= 0 {
+                self.oxegenTimerHelper.hamiltonCountDown = getTotalSecondsLeft()
             }
-            if (oxegenTimerHelper.timerCountingHamilton) {
-                oxegenTimerHelper.timerCountingHamilton = false
+            if (oxegenTimerHelper.isHamiltonCounting) {
+                oxegenTimerHelper.isHamiltonCounting = false
                 stopStartText = "START"
                 userNotificationCenter.removeAllPendingNotificationRequests()
             } else {
-                if oxegenTimerHelper.hamCountDown >= 600 {
-                    let minuteLeft = oxegenTimerHelper.hamCountDown - 599
+                if oxegenTimerHelper.hamiltonCountDown >= 600 {
+                    let minuteLeft = oxegenTimerHelper.hamiltonCountDown - 599
                     notificationManager.sendLocalNotification(timeInterval: Double(minuteLeft), title: "10 mins Left", body: "HAMILTON there is 10 mins left", sound: "critalAlarm.wav")
                 }
-                if oxegenTimerHelper.hamCountDown >= 60 {
-                    let tenseconds = oxegenTimerHelper.hamCountDown - 59
-                    print(oxegenTimerHelper.hamCountDown)
+                if oxegenTimerHelper.hamiltonCountDown >= 60 {
+                    let tenseconds = oxegenTimerHelper.hamiltonCountDown - 59
+                    print(oxegenTimerHelper.hamiltonCountDown)
                     notificationManager.sendLocalNotification(timeInterval: Double(tenseconds), title: "1 min Left", body: "HAMILTON there is 1 mins left", sound: "critalAlarm.wav")
                 }
                 
-                if oxegenTimerHelper.hamCountDown >= 2 {
-                    let twoSeconds = oxegenTimerHelper.hamCountDown - 1
+                if oxegenTimerHelper.hamiltonCountDown >= 2 {
+                    let twoSeconds = oxegenTimerHelper.hamiltonCountDown - 1
                     notificationManager.sendLocalNotification(timeInterval: Double(twoSeconds), title: "Timer is Done", body: "HAMILTON Timer is done", sound: "critalAlarm.wav")
                 }
                 
-                oxegenTimerHelper.timerCountingHamilton = true
+                oxegenTimerHelper.isHamiltonCounting = true
                 stopStartText = "STOP  "
                 hideKeyboard()
             }
@@ -158,15 +163,15 @@ struct HamiltonView: View {
     
     var resetButton: some View {
         Button("RESET") {
-            oxegenTimerHelper.hamCountDown = 0
-            oxegenTimerHelper.timerCountingHamilton = false
+            oxegenTimerHelper.hamiltonCountDown = 0
+            oxegenTimerHelper.isHamiltonCounting = false
             stopStartText = "START"
             userNotificationCenter.removeAllPendingNotificationRequests()
             psiTextField  = ""
             fi02TextField = ""
             rateTextField = ""
             vtTextField   = ""
-            oxegenTimerHelper.hamTimerText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
+            oxegenTimerHelper.hamiltonTimerText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
             timeText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
             hideKeyboard()
         }

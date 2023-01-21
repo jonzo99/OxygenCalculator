@@ -26,12 +26,12 @@ struct OxygenCalculatorApp: App {
                 if let timeExitedScreen = oxegenTimerHelper.timeExitedScreen {
                     let timePassedInBackground = Int(Date() - timeExitedScreen) + 1
                     print(timeExitedScreen)
-                    if oxegenTimerHelper.timerCountingHamilton {
-                        oxegenTimerHelper.hamCountDown = oxegenTimerHelper.hamCountDown - timePassedInBackground
+                    if oxegenTimerHelper.isHamiltonCounting {
+                        oxegenTimerHelper.hamiltonCountDown = oxegenTimerHelper.hamiltonCountDown - timePassedInBackground
                     }
                     
-                    if oxegenTimerHelper.timerCountingFree {
-                        oxegenTimerHelper.freeCountDown = oxegenTimerHelper.freeCountDown - timePassedInBackground
+                    if oxegenTimerHelper.isFreeFlowCounting {
+                        oxegenTimerHelper.freeFlowCountDown = oxegenTimerHelper.freeFlowCountDown - timePassedInBackground
                     }
                 }
                 oxegenTimerHelper.timeExitedScreen = nil

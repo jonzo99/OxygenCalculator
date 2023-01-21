@@ -35,11 +35,10 @@ struct FreeFlowView: View {
     
     var body: some View {
         VStack {
-            /*
-            Text("Free Flow Oxygen Calculator")
+            Text("Free Flow")
                 .font(.system(.largeTitle, design: .rounded))
                 .fontWeight(.bold)
-                .multilineTextAlignment(.center) */
+                .multilineTextAlignment(.center)
             Spacer()
             TankSizePicker(selectedTankSize: $selectedTankSize)
             
@@ -47,10 +46,9 @@ struct FreeFlowView: View {
             
             timerTextField(leftLabel: "Rate:", placeholder: "rate", text: $rateTextField, focused: $focusedField, nextFocusedValue: .rateTextField)
             
-            
             CaluclatedTime(displayTimeText: $timeText)
             
-            Text(oxegenTimerHelper.freeTimerText)
+            Text(oxegenTimerHelper.freeFlowTimerText)
                 .font(.system(size: 40, weight: .bold, design: .rounded))
                 .frame(alignment: .center)
             Spacer()
@@ -58,10 +56,8 @@ struct FreeFlowView: View {
                 Spacer()
                 resetButton
                     .padding()
-                
                 calcButton
                     .padding()
-                
                 startStopButton
                     .padding()
                 Spacer()
@@ -78,8 +74,8 @@ struct FreeFlowView: View {
                     showAlert = true
                     total = 0
                 }
-                if (oxegenTimerHelper.timerCountingFree == false) {
-                    oxegenTimerHelper.freeCountDown = total
+                if (oxegenTimerHelper.isFreeFlowCounting == false) {
+                    oxegenTimerHelper.freeFlowCountDown = total
                 }
                 let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
                 let timeString = oxegenTimerHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
@@ -94,30 +90,29 @@ struct FreeFlowView: View {
     
     var startStopButton: some View {
         Button(stopStartText) {
-            if oxegenTimerHelper.freeCountDown <= 0 {
-                self.oxegenTimerHelper.freeCountDown = getTotalSecondsLeft()
+            if oxegenTimerHelper.freeFlowCountDown <= 0 {
+                self.oxegenTimerHelper.freeFlowCountDown = getTotalSecondsLeft()
             }
-            if (oxegenTimerHelper.timerCountingFree) {
-                oxegenTimerHelper.timerCountingFree = false
+            if (oxegenTimerHelper.isFreeFlowCounting) {
+                oxegenTimerHelper.isFreeFlowCounting = false
                 stopStartText = "START"
                 userNotificationCenter.removeAllPendingNotificationRequests()
             } else {
-                if oxegenTimerHelper.freeCountDown >= 600 {
-                    let minuteLeft = oxegenTimerHelper.freeCountDown - 599
-                    print(oxegenTimerHelper.freeCountDown)
+                if oxegenTimerHelper.freeFlowCountDown >= 600 {
+                    let minuteLeft = oxegenTimerHelper.freeFlowCountDown - 599
                     notificationManager.sendLocalNotification(timeInterval: Double(minuteLeft), title: "10 mins Left", body: "FREE FLOW there is 10 mins left", sound: "critalAlarm.wav")
                 }
-                if oxegenTimerHelper.freeCountDown >= 60 {
-                    let tenseconds = oxegenTimerHelper.freeCountDown - 59
-                    print(oxegenTimerHelper.freeCountDown)
+                if oxegenTimerHelper.freeFlowCountDown >= 60 {
+                    let tenseconds = oxegenTimerHelper.freeFlowCountDown - 59
+                    print(oxegenTimerHelper.freeFlowCountDown)
                     notificationManager.sendLocalNotification(timeInterval: Double(tenseconds), title: "1 min Left", body: "FREE FLOW there is 1 mins left", sound: "critalAlarm.wav")
                 }
-                if oxegenTimerHelper.freeCountDown >= 2 {
-                    let twoSeconds = oxegenTimerHelper.freeCountDown - 1
+                if oxegenTimerHelper.freeFlowCountDown >= 2 {
+                    let twoSeconds = oxegenTimerHelper.freeFlowCountDown - 1
                     notificationManager.sendLocalNotification(timeInterval: Double(twoSeconds), title: "Timer is Done", body: "FREE FLOW Timer is done", sound: "critalAlarm.wav")
                 }
                 
-                oxegenTimerHelper.timerCountingFree = true
+                oxegenTimerHelper.isFreeFlowCounting = true
                 stopStartText = "STOP  "
                 hideKeyboard()
             }
@@ -133,8 +128,8 @@ struct FreeFlowView: View {
                 showAlert = true
                 total = 0
             }
-            if (oxegenTimerHelper.timerCountingFree == false) {
-                oxegenTimerHelper.freeCountDown = total
+            if (oxegenTimerHelper.isFreeFlowCounting == false) {
+                oxegenTimerHelper.freeFlowCountDown = total
             }
             let time = oxegenTimerHelper.secondsToHoursMinutesSeconds(seconds: total)
             let timeString = oxegenTimerHelper.makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
@@ -147,9 +142,9 @@ struct FreeFlowView: View {
     }
     var resetButton: some View {
         Button("RESET") {
-            oxegenTimerHelper.freeCountDown = 0
-            oxegenTimerHelper.timerCountingFree = false
-            oxegenTimerHelper.freeTimerText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
+            oxegenTimerHelper.freeFlowCountDown = 0
+            oxegenTimerHelper.isFreeFlowCounting = false
+            oxegenTimerHelper.freeFlowTimerText = oxegenTimerHelper.makeTimeString(hours: 0, minutes: 0, seconds: 0)
             stopStartText = "START"
             userNotificationCenter.removeAllPendingNotificationRequests()
             psiTextField = ""

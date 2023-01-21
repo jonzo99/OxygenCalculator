@@ -8,41 +8,41 @@
 import Foundation
 
 class OxegenTimeHelper: ObservableObject {
-    @Published var freeCountDown: Int {
+    @Published var freeFlowCountDown: Int {
         didSet {
-            UserDefaults.standard.set(freeCountDown, forKey: "FreeCountDown")
+            UserDefaults.standard.set(freeFlowCountDown, forKey: "freeFlowCountDown")
         }
     }
-    @Published var freeTimerText: String = "00:00:00"
-    @Published var hamCountDown: Int {
+    @Published var freeFlowTimerText: String = "00:00:00"
+    @Published var hamiltonCountDown: Int {
         didSet {
-            UserDefaults.standard.set(hamCountDown, forKey: "HamCountDown")
+            UserDefaults.standard.set(hamiltonCountDown, forKey: "hamiltonCountDown")
         }
     }
-    @Published var hamTimerText: String = "00:00:00"
+    @Published var hamiltonTimerText: String = "00:00:00"
+    @Published var isFreeFlowCounting: Bool {
+        didSet {
+            UserDefaults.standard.set(isFreeFlowCounting, forKey: "isFreeFlowCounting")
+        }
+    }
+    @Published var isHamiltonCounting: Bool {
+        didSet {
+            UserDefaults.standard.set(isHamiltonCounting, forKey: "isHamiltonCounting")
+        }
+    }
     @Published var timeExitedScreen: Date? {
         didSet {
             UserDefaults.standard.set(timeExitedScreen, forKey: "timeExitedScreen")
         }
     }
     @Published var timer: Timer?
-    @Published var timerCountingFree: Bool {
-        didSet {
-            UserDefaults.standard.set(timerCountingFree, forKey: "timerCountingFree")
-        }
-    }
-    @Published var timerCountingHamilton: Bool {
-        didSet {
-            UserDefaults.standard.set(timerCountingHamilton, forKey: "timerCountingHamilton")
-        }
-    }
     
     init() {
         self.timeExitedScreen = UserDefaults.standard.object(forKey: "timeExitedScreen") as? Date
-        self.hamCountDown = UserDefaults.standard.integer(forKey: "HamCountDown")
-        self.freeCountDown = UserDefaults.standard.integer(forKey: "FreeCountDown")
-        self.timerCountingFree = UserDefaults.standard.bool(forKey: "timerCountingFree")
-        self.timerCountingHamilton = UserDefaults.standard.bool(forKey: "timerCountingHamilton")
+        self.hamiltonCountDown = UserDefaults.standard.integer(forKey: "hamiltonCountDown")
+        self.freeFlowCountDown = UserDefaults.standard.integer(forKey: "freeFlowCountDown")
+        self.isFreeFlowCounting = UserDefaults.standard.bool(forKey: "isFreeFlowCounting")
+        self.isHamiltonCounting = UserDefaults.standard.bool(forKey: "isHamiltonCounting")
     }
     
     func startTimer() {
@@ -57,30 +57,30 @@ class OxegenTimeHelper: ObservableObject {
     }
     
     @objc func timerFired() {
-        if timerCountingHamilton {
-            if (hamCountDown > 0) {
-                hamCountDown -= 1
+        if isHamiltonCounting {
+            if (hamiltonCountDown > 0) {
+                hamiltonCountDown -= 1
             }
-            if (hamCountDown <= 0) {
-                timerCountingHamilton = false
+            if (hamiltonCountDown <= 0) {
+                isHamiltonCounting = false
             }
             // if i want to add a message when it hits a certain amount of seconds i should make phone vibrate show notification
-            let time = secondsToHoursMinutesSeconds(seconds: hamCountDown)
+            let time = secondsToHoursMinutesSeconds(seconds: hamiltonCountDown)
             let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
-            hamTimerText = timeString
+            hamiltonTimerText = timeString
         }
         
-        if timerCountingFree {
-            if (freeCountDown > 0) {
-                freeCountDown -= 1
+        if isFreeFlowCounting {
+            if (freeFlowCountDown > 0) {
+                freeFlowCountDown -= 1
             }
-            if (freeCountDown <= 0) {
-                timerCountingFree = false
+            if (freeFlowCountDown <= 0) {
+                isFreeFlowCounting = false
             }
             // if i want to add a message when it hits a certain amount of seconds i should make phone vibrate show notification
-            let time = secondsToHoursMinutesSeconds(seconds: freeCountDown)
+            let time = secondsToHoursMinutesSeconds(seconds: freeFlowCountDown)
             let timeString = makeTimeString(hours: time.0, minutes: time.1, seconds: time.2)
-            freeTimerText = timeString
+            freeFlowTimerText = timeString
         }
     }
     func secondsToHoursMinutesSeconds(seconds: Int) -> (Int, Int, Int) {
